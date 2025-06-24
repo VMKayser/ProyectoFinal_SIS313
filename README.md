@@ -784,7 +784,7 @@ fi
     "jest": "^29.5.0"
   },
   "keywords": ["nodejs", "mysql", "crud", "express", "sis313"],
-  "author": "César - SIS313 USFX",
+  "author": "Equipo SIS313 - USFX",
   "license": "MIT"
 }
 ```
@@ -1566,34 +1566,6 @@ sudo mdadm --detail /dev/md0
 
 ---
 
-## 📞 Contacto y Créditos
-
-### 👥 Equipo de Desarrollo SIS313
-
-#### 🎯 **Cervantes Torres Atzel Alan** - CICO
-- **Rol**: Arquitecto de Infraestructura y Coordinador del Proyecto
-- **Email**: atzel.cervantes@estudiante.usfx.bo
-- **LinkedIn**: [linkedin.com/in/atzel-cervantes](https://linkedin.com/in/atzel-cervantes)
-- **Especialización**: Diseño de redes, topologías distribuidas, documentación técnica
-
-#### 🚀 **Valencia Medina Freddy Daniel** - SISTEMAS  
-- **Rol**: Desarrollador Backend y APIs
-- **Email**: freddy.valencia@estudiante.usfx.bo
-- **GitHub**: [github.com/freddyvalencia](https://github.com/freddyvalencia)
-- **Especialización**: Node.js, Express, desarrollo de APIs REST, testing
-
-#### 🗄️ **Taboada Alarcón Marco Antonio** - SISTEMAS
-- **Rol**: Administrador de Base de Datos
-- **Email**: marco.taboada@estudiante.usfx.bo  
-- **LinkedIn**: [linkedin.com/in/marco-taboada](https://linkedin.com/in/marco-taboada)
-- **Especialización**: MySQL, replicación, RAID, backup y recovery
-
-#### 🌐 **Claros Herbas André Shaiel** - CICO
-- **Rol**: Especialista en Redes y Seguridad
-- **Email**: andre.claros@estudiante.usfx.bo
-- **GitHub**: [github.com/andreclaros](https://github.com/andreclaros)
-- **Especialización**: DNS, NGINX, SSL/TLS, firewall, load balancing
-
 ### 🏫 Información Institucional
 
 **Universidad**: Universidad San Francisco Xavier de Chuquisaca (USFX)  
@@ -1603,8 +1575,8 @@ sudo mdadm --detail /dev/md0
 - 🔬 Ciencias de la Computación e Informática (CICO)
 
 **Materia**: SIS313 - Sistemas de Información  
-**Docente**: [Nombre del Docente]  
-**Gestión**: 2024-II  
+**Docente**: Quispe Ortega Lucio Marcelo 
+**Gestión**: 2025-II  
 **Período**: Enero - Junio 2025  
 **Fecha de Entrega**: 24 de Junio, 2025
 
