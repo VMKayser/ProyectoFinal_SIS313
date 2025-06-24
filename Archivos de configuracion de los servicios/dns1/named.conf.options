@@ -1,0 +1,24 @@
+options {
+    directory "/var/cache/bind";
+
+    // Desactiva DNSSEC si no estás usando claves actualizadas
+    dnssec-validation no;
+
+    // Permitir consultas DNS solo desde localhost y la red local
+    allow-query { localhost; 192.168.72.0/24; };
+
+    // Habilitar resolución recursiva
+    recursion yes;
+
+    // Escuchar solo en localhost e IP del servidor
+    listen-on { 127.0.0.1; 192.168.72.110; };
+    listen-on-v6 { none; };
+
+    // (Opcional) reenviar peticiones externas a DNS públicos
+    // forwarders {
+    //     8.8.8.8;
+    //     1.1.1.1;
+    // };
+
+    // otros parámetros opcionales
+};
