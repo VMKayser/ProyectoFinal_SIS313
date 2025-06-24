@@ -187,14 +187,6 @@ animation: move-twink-back 200s linear infinite;
 
 Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
 
-## 🆘 Soporte
-
-Si tienes problemas o preguntas:
-
-1. **Issues**: Crear un issue en GitHub
-2. **Documentación**: Revisar este README
-3. **Debug**: Usar `/diagnostic` para verificar conexión DB
-
 ## 🌟 Créditos
 
 - **Fuentes**: [Google Fonts (Orbitron, Exo 2)](https://fonts.google.com/)
