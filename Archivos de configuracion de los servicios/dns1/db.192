@@ -1,0 +1,15 @@
+; BIND reverse data file for local loopback interface
+$TTL    604800
+@       IN      SOA     ns1.sis313.usfx.bo. admin.sis313.usfx.bo. (
+                              2025061701 ; Serial
+                              604800     ; Refresh
+                               86400     ; Retry
+                             2419200     ; Expire
+                              604800 )   ; Negative Cache TTL
+;
+@       IN      NS      ns1.sis313.usfx.bo.
+@       IN      NS      ns2.sis313.usfx.bo.
+100     IN      PTR     web.sis313.usfx.bo.
+100     IN      PTR     balanceador.sis313.usfx.bo.
+101     IN      PTR     server-app1.sis313.usfx.bo.
+102     IN      PTR     server-app2.sis313.usfx.bo.
