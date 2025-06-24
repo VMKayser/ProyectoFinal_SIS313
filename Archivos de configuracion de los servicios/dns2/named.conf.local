@@ -1,0 +1,16 @@
+// Do any local configuration here
+//
+zone "sis313.usfx.bo" {
+    type slave;
+    file "/var/cache/bind/db.sis313.usfx.bo";
+    masters { 192.168.72.110; }; // Permitir transferencia al DNS secundario
+};
+
+zone "1.168.192.in-addr.arpa" {
+    type slave;
+    file "/var/cache/bind/db.192";
+    masters { 192.168.72.110; };
+};
+
+// Consider adding the 1918 zones here, if they are not used in your organization
+//include "/etc/bind/zones.rfc1918";
