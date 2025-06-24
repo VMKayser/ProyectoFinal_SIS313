@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌌 TechStore Galáctico - Sistema de Inventario Intergaláctico</title>
+    <link rel="stylesheet" href="/public/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Fondo espacial animado -->
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    <div class="clouds"></div>
+
+    <!-- Sistema de partículas -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Loader galáctico -->
+    <div id="galactic-loader" class="galactic-loader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <div class="loader-text">SINCRONIZANDO CON LA GALAXIA...</div>
+            <div class="loader-progress">
+                <div class="progress-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notificaciones galácticas -->
+    <div id="notification-container" class="notification-container"></div>
+
+    <!-- Panel de control principal -->
+    <div class="main-console">
+        <div class="console-header">
+            <div class="status-indicators">
+                <div class="indicator online"></div>
+                <div class="indicator-label">SISTEMA ONLINE</div>
+            </div>
+            <h1 class="galaxy-title">
+                <span class="title-glow">🛸 TECHSTORE GALÁCTICO</span>
+                <div class="subtitle">CENTRO DE COMANDO - ÚTILES ESCOLARES</div>
+            </h1>
+            <div class="hologram-effect"></div>
+        </div>
+
+        <!-- Indicador de Servidor Conectado -->
+        <div class="current-server-indicator" id="current-server-banner">
+            <div class="server-beacon">
+                <div class="beacon-pulse"></div>
+                <span class="beacon-icon">📡</span>
+            </div>
+            <div class="server-info-banner">
+                <div class="server-label">CONECTADO A:</div>
+                <div class="server-name" id="current-server-name">Verificando...</div>
+                <div class="server-ip-banner" id="current-server-ip">IP: ---</div>
+            </div>
+            <div class="connection-status" id="connection-status">
+                <span class="status-dot"></span>
+                <span class="status-text">SINCRONIZANDO</span>
+            </div>
+        </div>
+
+        <!-- Panel de Estado de Servidores Galácticos -->
+        <div class="servers-panel">
+            <div class="panel-header">
+                <h2>🌌 ESTADO DE LA RED GALÁCTICA</h2>
+                <div class="scan-line"></div>
+            </div>
+
+            <div class="servers-grid">
+                <div class="server-card" id="server-app">
+                    <div class="server-header">
+                        <span class="server-icon">🖥️</span>
+                        <h3>SERVER1 (APLICACIÓN)</h3>
+                    </div>
+                    <div class="server-info">
+                        <div class="server-ip">192.168.1.101</div>
+                        <div class="server-role">Node.js + Express</div>
+                        <div class="server-status online">🟢 ONLINE</div>
+                    </div>
+                </div>
+
+                <div class="server-card" id="server-db1">
+                    <div class="server-header">
+                        <span class="server-icon">🗄️</span>
+                        <h3>SERVER3 (BD PRIMARIA)</h3>
+                    </div>
+                    <div class="server-info">
+                        <div class="server-ip">192.168.1.103</div>
+                        <div class="server-role">MariaDB Principal</div>
+                        <div class="server-status offline" id="db1-status">🔴 OFFLINE</div>
+                    </div>
+                </div>
+
+                <div class="server-card" id="server-db2">
+                    <div class="server-header">
+                        <span class="server-icon">🗄️</span>
+                        <h3>SERVER4 (BD RESPALDO)</h3>
+                    </div>
+                    <div class="server-info">
+                        <div class="server-ip">192.168.1.104</div>
+                        <div class="server-role">MariaDB Replicación</div>
+                        <div class="server-status offline" id="db2-status">🔴 OFFLINE</div>
+                    </div>
+                </div>
+
+                <div class="server-card" id="server-expansion1">
+                    <div class="server-header">
+                        <span class="server-icon">📡</span>
+                        <h3>SERVER2 (EXPANSIÓN)</h3>
+                    </div>
+                    <div class="server-info">
+                        <div class="server-ip">192.168.1.102</div>
+                        <div class="server-role">Node.js Secundario</div>
+                        <div class="server-status unknown">⚪ STANDBY</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="network-summary">
+                <div class="summary-item">
+                    <span class="summary-label">ESTADO GENERAL:</span>
+                    <span class="summary-value" id="general-status">🟡 FUNCIONANDO</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel de inventario -->
+        <div class="inventory-panel">
+            <div class="panel-header">
+                <h2>📡 INVENTARIO GALÁCTICO</h2>
+                <div class="scan-line"></div>
+            </div>
+
+            <div class="table-container">
+                <table id="supplyTable" class="holographic-table">
+                    <thead>
+                        <tr>
+                            <th><span class="header-icon">🆔</span>ID</th>
+                            <th><span class="header-icon">📦</span>Nombre</th>
+                            <th><span class="header-icon">🔮</span>Tipo</th>
+                            <th><span class="header-icon">📊</span>Cantidad</th>
+                            <th><span class="header-icon">💰</span>Precio</th>
+                            <th><span class="header-icon">⚡</span>Estado</th>
+                            <th><span class="header-icon">🎮</span>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Panel de control de adición -->
+        <div class="control-panel">
+            <div class="panel-header">
+                <h3>🚀 AGREGAR NUEVO SUMINISTRO</h3>
+                <div class="energy-bar">
+                    <div class="energy-fill"></div>
+                </div>
+            </div>
+
+            <div class="form-grid">
+                <div class="input-group">
+                    <label class="cyber-label">NOMBRE DEL ARTÍCULO</label>
+                    <input type="text" id="name" placeholder="Ingrese nombre..." class="cyber-input">
+                    <div class="input-glow"></div>
+                </div>
+
+                <div class="input-group">
+                    <label class="cyber-label">TIPO</label>
+                    <select id="type_id" class="cyber-select" title="Selecciona el tipo de artículo">
+                        <option value="">Seleccionar tipo...</option>
+                        <option value="1">📚 Cuadernos</option>
+                        <option value="2">✏️ Lápices</option>
+                        <option value="3">📝 Bolígrafos</option>
+                        <option value="4">📐 Reglas</option>
+                        <option value="5">🖍️ Colores</option>
+                        <option value="6">📎 Clips</option>
+                        <option value="7">✂️ Tijeras</option>
+                        <option value="8">🗂️ Carpetas</option>
+                    </select>
+                    <div class="input-glow"></div>
+                </div>
+
+                <div class="input-group">
+                    <label class="cyber-label">CANTIDAD</label>
+                    <input type="number" id="quantity" placeholder="0" min="0" class="cyber-input">
+                    <div class="input-glow"></div>
+                </div>
+
+                <div class="input-group">
+                    <label class="cyber-label">PRECIO (CRÉDITOS)</label>
+                    <input type="number" step="0.01" id="price" placeholder="0.00" min="0" class="cyber-input">
+                    <div class="input-glow"></div>
+                </div>
+
+                <div class="input-group">
+                    <label class="cyber-label">ESTADO</label>
+                    <select id="status_id" class="cyber-select" title="Selecciona el estado del artículo">
+                        <option value="">Seleccionar estado...</option>
+                        <option value="1">✅ Disponible</option>
+                        <option value="2">⚠️ Agotándose</option>
+                        <option value="3">❌ Agotado</option>
+                        <option value="4">🔄 En reposición</option>
+                        <option value="5">🚫 Descontinuado</option>
+                    </select>
+                    <div class="input-glow"></div>
+                </div>
+
+                <div class="input-group action-group">
+                    <button class="action-btn primary" onclick="addSupply()">
+                        <span class="btn-icon">🚀</span>
+                        <span class="btn-text">AGREGAR AL INVENTARIO</span>
+                        <div class="btn-glow"></div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer galáctico -->
+    <footer class="galactic-footer">
+        <div class="footer-content">
+            <p>🌌 TechStore Galáctico © 2025 | Sistema de Inventario Intergaláctico</p>
+            <p>Conectado a la Red 192.168.1.xxx | Versión 2.0 Galáctica</p>
+        </div>
+    </footer>
+
+    <script src="/public/script_simple.js"></script>
+</body>
+
+</html>
